@@ -21,10 +21,11 @@ function getJSON(url, callback) {
 function getProfiles(json){
   
   json.people.map ( person => {
+
     if ( person.name == "Andrew Morgan")
-        {
-          person.name = "Andrew R. Morgan";
-        }
+      {
+        person.name = "Andrew R. Morgan";
+      }
     getJSON(wikiUrl + person.name, generateHTML );
   });
 }
