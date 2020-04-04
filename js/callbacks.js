@@ -11,6 +11,7 @@ function getJSON(url, callback) {
     if(xhr.status === 200) {
       let data = JSON.parse(xhr.responseText);
       // as soon as we got the data we execute callback
+      console.log(data);
       return callback(data);
     }
   };
@@ -18,7 +19,12 @@ function getJSON(url, callback) {
 }
 
 function getProfiles(json){
+  
   json.people.map ( person => {
+    if ( person.name == "Andrew Morgan")
+        {
+          person.name = "Andrew R. Morgan";
+        }
     getJSON(wikiUrl + person.name, generateHTML );
   });
 }
