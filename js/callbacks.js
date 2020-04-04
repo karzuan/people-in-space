@@ -10,7 +10,8 @@ function getJSON(url, callback) {
   xhr.onload = () => {
     if(xhr.status === 200) {
       let data = JSON.parse(xhr.responseText);
-      callback(data);
+      // as soon as we got the data we execute callback
+      return callback(data);
     }
   };
   xhr.send();
@@ -27,3 +28,16 @@ function generateHTML(data) {
     <p>${data.extract}</p>
   `;
 }
+
+//getJSON(astrosUrl);
+ 
+btn.addEventListener('click', (event) => {
+  
+  getJSON(astrosUrl, (json) =>{
+      json.people.map ( person => {
+        getJSON(wikiUrl + person.name, generateHTML );
+      });
+
+  },) 
+  event.target.remove();
+});
