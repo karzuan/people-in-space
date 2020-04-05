@@ -38,7 +38,7 @@ btn.addEventListener('click', (event) => {
   event.target.textContent = "Loading...";
 
   fetch(astrosUrl)
-  .then(response => response.json() )
+    .then(response => response.json() )
     .then(getProfiles)
     .then(generateHTML)
     .catch(error => {
