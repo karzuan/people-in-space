@@ -22,9 +22,9 @@ async function getPeopleInSpace(url){
 
   const profiles = peopleJSON.people.map( async (person) => {
       const craft = person.craft;
-      if ( person.name == "Andrew Morgan")
+      if ( person.name == "Anatoly Ivanishin")
       {
-        person.name = "Andrew R. Morgan";
+        person.name = "Anatoli Ivanishin";
       } 
       const profileJSON = await getJSON( wikiUrl + person.name);
 
